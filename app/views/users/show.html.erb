@@ -10,5 +10,19 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>id:</strong>
+  <%= @user.id %>
+</p><br>
+
+    <% @microposts.each do |micropost| %>
+        <p><%= micropost.content %></p>
+        <%= link_to 'Show', micropost %>
+        <%= link_to 'Edit', edit_micropost_path(micropost) %>
+        <%= link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
